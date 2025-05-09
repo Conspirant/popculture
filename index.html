@@ -22,19 +22,20 @@
             background-color: var(--dark);
             color: white;
             overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
         }
         
         .title-font {
             font-family: 'Bungee', cursive;
-            text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
         }
         
         .glass-card {
             background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+            box-shadow: 0 4px 16px rgba(31, 38, 135, 0.2);
         }
         
         .popcorn-particle {
@@ -43,22 +44,22 @@
             background-size: contain;
             pointer-events: none;
             z-index: -1;
-            animation: float 6s ease-in-out infinite;
+            animation: float 5s ease-in-out infinite;
         }
         
         @keyframes float {
             0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(-15px) rotate(3deg); }
         }
         
         .confetti {
             position: fixed;
-            width: 15px;
-            height: 15px;
+            width: 10px;
+            height: 10px;
             background-color: var(--accent);
             opacity: 0;
             z-index: 9999;
-            animation: confetti-fall 5s linear forwards;
+            animation: confetti-fall 4s linear forwards;
         }
         
         @keyframes confetti-fall {
@@ -73,64 +74,63 @@
         }
         
         .game-card {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.3s ease;
             transform: scale(1);
-            perspective: 1000px;
         }
         
         .game-card:hover {
-            transform: scale(1.03) translateY(-10px);
-            box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+            transform: scale(1.02) translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
         
         .pop-animation {
-            animation: pop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+            animation: pop 0.5s ease both;
         }
         
         @keyframes pop {
-            0% { transform: scale(0.8); opacity: 0; }
-            50% { transform: scale(1.1); }
+            0% { transform: scale(0.9); opacity: 0; }
+            50% { transform: scale(1.05); }
             100% { transform: scale(1); opacity: 1; }
         }
         
-        /* Popcorn catching game styles */
+        /* Popcorn Catcher Game */
         #popcornGame {
             position: relative;
-            height: 400px;
+            height: 300px;
             background: linear-gradient(to bottom, #1E3A8A, #3B82F6);
             overflow: hidden;
-            border-radius: 16px;
-            box-shadow: inset 0 0 50px rgba(0,0,0,0.3);
+            border-radius: 12px;
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.3);
+            touch-action: none;
         }
         
         .falling-popcorn {
             position: absolute;
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FFD700"><path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M12,20c-4.42,0-8-3.58-8-8s3.58-8,8-8 s8,3.58,8,8S16.42,20,12,20z"/></svg>');
             background-size: contain;
             z-index: 10;
-            transition: transform 0.2s;
         }
         
         .popcorn-basket {
             position: absolute;
-            width: 100px;
-            height: 60px;
+            width: 80px;
+            height: 50px;
             background-color: #8B4513;
-            border-radius: 0 0 50% 50%;
-            bottom: 20px;
+            border-radius: 0 0 40% 40%;
+            bottom: 15px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 20;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
         }
         
-        /* Memory game styles */
+        /* Memory Game */
         .memory-card {
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
             transform-style: preserve-3d;
-            perspective: 1000px;
+            perspective: 800px;
         }
         
         .memory-card.flipped {
@@ -144,7 +144,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            border-radius: 12px;
+            border-radius: 8px;
         }
         
         .memory-card .front {
@@ -153,8 +153,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            box-shadow: inset 0 0 20px rgba(255,255,255,0.2);
+            font-size: 1.5rem;
         }
         
         .memory-card .back {
@@ -162,21 +161,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+            font-size: 1rem;
         }
         
-        /* Pop the popcorn game styles */
+        /* Pop the Popcorn Game */
         .popcorn-kernel {
-            width: 60px;
-            height: 60px;
+            width: 40px;
+            height: 40px;
             background-color: #DAA520;
             border-radius: 50%;
             position: relative;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.2s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
         }
         
         .popcorn-kernel:before {
@@ -188,27 +185,27 @@
             border-radius: 50%;
             top: 20%;
             left: 20%;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
         }
         
         .popped {
             background-color: white;
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FFD700"><path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M12,20c-4.42,0-8-3.58-8-8s3.58-8,8-8 s8,3.58,8,8S16.42,20,12,20z"/></svg>');
             background-size: 100%;
-            transform: scale(1.5);
+            transform: scale(1.3);
         }
         
         /* Popcorn Trivia Game */
         .trivia-option {
             background: rgba(255,255,255,0.1);
             border: 1px solid rgba(255,255,255,0.2);
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             cursor: pointer;
+            padding: 10px;
         }
         
         .trivia-option:hover {
             background: rgba(255,255,255,0.2);
-            transform: translateX(5px);
+            transform: translateX(3px);
         }
         
         .trivia-option.correct {
@@ -223,8 +220,8 @@
         
         /* Popcorn Reaction Game */
         .reaction-target {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 50%;
             position: absolute;
@@ -233,7 +230,8 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            font-size: 0.8rem;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.3);
             transition: transform 0.1s;
         }
         
@@ -241,71 +239,22 @@
             transform: scale(0.9);
         }
         
-        /* New Game: Popcorn Rush */
-        .popcorn-rush-container {
+        /* Popcorn Painter Game */
+        .painter-canvas {
             position: relative;
-            height: 400px;
             background: linear-gradient(to bottom, #1a1a2e, #16213e);
-            border-radius: 16px;
+            border-radius: 12px;
             overflow: hidden;
+            touch-action: none;
         }
         
-        .rush-road {
+        .painter-popcorn {
             position: absolute;
-            width: 100%;
-            height: 100%;
-            background: repeating-linear-gradient(
-                0deg,
-                #333 0px,
-                #333 40px,
-                #444 40px,
-                #444 80px
-            );
-            background-size: 100% 80px;
-            animation: roadMove 2s linear infinite;
-        }
-        
-        @keyframes roadMove {
-            0% { background-position: 0 0; }
-            100% { background-position: 0 80px; }
-        }
-        
-        .rush-player {
-            position: absolute;
-            width: 60px;
-            height: 100px;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FFD700"><path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M12,20c-4.42,0-8-3.58-8-8s3.58-8,8-8 s8,3.58,8,8S16.42,20,12,20z"/></svg>');
-            background-size: 60px 60px;
-            background-repeat: no-repeat;
-            background-position: center bottom;
-            z-index: 10;
-        }
-        
-        .rush-obstacle {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FF6B6B"><path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M12,20c-4.42,0-8-3.58-8-8s3.58-8,8-8 s8,3.58,8,8S16.42,20,12,20z"/></svg>');
-            background-size: contain;
-            z-index: 5;
-        }
-        
-        .rush-collectible {
-            position: absolute;
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FFD700"><path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M12,20c-4.42,0-8-3.58-8-8s3.58-8,8-8 s8,3.58,8,8S16.42,20,12,20z"/></svg>');
             background-size: contain;
-            z-index: 5;
-            animation: pulse 1s infinite alternate;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.2); }
+            cursor: pointer;
         }
         
         /* Premium UI Elements */
@@ -340,14 +289,14 @@
         .counter-box {
             background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 12px;
-            padding: 12px 20px;
-            min-width: 100px;
+            border-radius: 8px;
+            padding: 8px 12px;
+            min-width: 70px;
             text-align: center;
         }
         
         .counter-value {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: bold;
             background: linear-gradient(90deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
@@ -357,7 +306,7 @@
         
         /* Custom scrollbar */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
         
         ::-webkit-scrollbar-track {
@@ -366,46 +315,95 @@
         
         ::-webkit-scrollbar-thumb {
             background: linear-gradient(var(--primary), var(--secondary));
-            border-radius: 4px;
+            border-radius: 3px;
         }
         
         /* Mobile optimizations */
         @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+            
+            .container {
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+            
+            .text-4xl { font-size: 2rem; }
+            .text-3xl { font-size: 1.75rem; }
+            .text-2xl { font-size: 1.5rem; }
+            .text-xl { font-size: 1.25rem; }
+            .text-lg { font-size: 1rem; }
+            
             .game-card {
-                margin-bottom: 1rem;
+                margin-bottom: 0.75rem;
             }
             
             .memory-card {
-                height: 80px;
+                height: 60px;
             }
             
             .popcorn-kernel {
-                width: 40px;
-                height: 40px;
-            }
-            
-            #popcornGame, .popcorn-rush-container {
-                height: 300px;
-            }
-            
-            .rush-player {
-                width: 40px;
-                height: 70px;
-                background-size: 40px 40px;
-            }
-            
-            .rush-obstacle, .rush-collectible {
                 width: 30px;
                 height: 30px;
             }
             
+            #popcornGame, .painter-canvas {
+                height: 250px;
+            }
+            
+            .popcorn-basket {
+                width: 60px;
+                height: 40px;
+            }
+            
+            .falling-popcorn, .painter-popcorn {
+                width: 25px;
+                height: 25px;
+            }
+            
+            .reaction-target {
+                width: 50px;
+                height: 50px;
+                font-size: 0.7rem;
+            }
+            
             .counter-box {
-                min-width: 80px;
-                padding: 8px 12px;
+                min-width: 60px;
+                padding: 6px 8px;
             }
             
             .counter-value {
-                font-size: 1.5rem;
+                font-size: 1.25rem;
+            }
+            
+            .trivia-option {
+                padding: 8px;
+                font-size: 0.9rem;
+            }
+            
+            .popcorn-particle {
+                display: none; /* Disable particles on mobile for performance */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .text-4xl { font-size: 1.75rem; }
+            .text-3xl { font-size: 1.5rem; }
+            .text-2xl { font-size: 1.25rem; }
+            .text-xl { font-size: 1rem; }
+            
+            #popcornGame, .painter-canvas {
+                height: 200px;
+            }
+            
+            .memory-card {
+                height: 50px;
+            }
+            
+            .popcorn-kernel {
+                width: 25px;
+                height: 25px;
             }
         }
     </style>
@@ -415,40 +413,40 @@
     <div id="popcornParticles"></div>
     
     <!-- Glowing orbs -->
-    <div class="absolute top-20 left-10 w-40 h-40 rounded-full bg-yellow-500 opacity-10 blur-3xl"></div>
-    <div class="absolute bottom-20 right-10 w-60 h-60 rounded-full bg-orange-500 opacity-10 blur-3xl"></div>
+    <div class="absolute top-10 left-5 w-20 h-20 rounded-full bg-yellow-500 opacity-10 blur-2xl"></div>
+    <div class="absolute bottom-10 right-5 w-30 h-30 rounded-full bg-orange-500 opacity-10 blur-2xl"></div>
     
     <!-- Main container -->
-    <div class="container mx-auto px-4 py-8 md:py-12 relative z-10">
+    <div class="container mx-auto px-4 py-6 md:py-10 relative z-10">
         <!-- Anniversary header -->
-        <header class="text-center mb-12 md:mb-16">
-            <div class="text-4xl md:text-7xl title-font mb-6 gradient-text">
+        <header class="text-center mb-8 md:mb-12">
+            <div class="text-4xl md:text-6xl title-font mb-4 gradient-text">
                 <span>POPCORN</span>
                 <span class="text-white">CULTURE</span>
                 <span class="text-accent">7</span>
             </div>
-            <h1 class="text-3xl md:text-6xl font-bold mb-6 md:mb-8">
-                <span class="shine-effect inline-block px-6 md:px-8 py-3 md:py-4 rounded-full glass-card">
+            <h1 class="text-3xl md:text-5xl font-bold mb-4 md:mb-6">
+                <span class="shine-effect inline-block px-4 md:px-6 py-2 md:py-3 rounded-full glass-card">
                     <span class="gradient-text">1 YEAR ANNIVERSARY!</span>
                 </span>
             </h1>
-            <p class="text-lg md:text-xl text-gray-300 mb-6 md:mb-8 max-w-2xl mx-auto">
+            <p class="text-lg md:text-xl text-gray-300 mb-4 md:mb-6 max-w-xl mx-auto">
                 Celebrating 365 days of buttery memes with our amazing 75 followers!
             </p>
             
-            <div class="flex flex-wrap justify-center gap-3 md:gap-4">
+            <div class="flex flex-wrap justify-center gap-2 md:gap-3">
                 <a href="https://instagram.com/popcorn_culture7" target="_blank"
-                    class="glass-card hover:bg-white/20 px-6 md:px-8 py-2 md:py-3 rounded-full font-bold hover:scale-105 transition-all flex items-center gap-2 text-sm md:text-base">
-                    <i class="fab fa-instagram text-lg md:text-xl"></i> Follow @popcorn_culture7
+                    class="glass-card hover:bg-white/20 px-4 md:px-6 py-2 md:py-2.5 rounded-full font-bold hover:scale-105 transition-all flex items-center gap-1.5 text-sm md:text-base">
+                    <i class="fab fa-instagram text-base md:text-lg"></i> Follow @popcorn_culture7
                 </a>
-                <button id="confettiBtn" class="bg-gradient-to-r from-accent to-pink-500 text-white px-6 md:px-8 py-2 md:py-3 rounded-full font-bold hover:scale-105 transition-all flex items-center gap-2 text-sm md:text-base">
-                    <i class="fas fa-birthday-cake text-lg md:text-xl"></i> Party Mode!
+                <button id="confettiBtn" class="bg-gradient-to-r from-accent to-pink-500 text-white px-4 md:px-6 py-2 md:py-2.5 rounded-full font-bold hover:scale-105 transition-all flex items-center gap-1.5 text-sm md:text-base">
+                    <i class="fas fa-birthday-cake text-base md:text-lg"></i> Party Mode!
                 </button>
             </div>
         </header>
         
         <!-- Stats counter -->
-        <div class="flex flex-wrap justify-center gap-4 md:gap-6 mb-12 md:mb-16">
+        <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-8 md:mb-12">
             <div class="counter-box">
                 <div class="text-gray-400">Years</div>
                 <div class="counter-value">1</div>
@@ -469,98 +467,98 @@
         
         <!-- Game selection -->
         <h2 class="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8 gradient-text">Anniversary Games</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
             <!-- Game 1: Popcorn Catcher -->
-            <div class="game-card glass-card rounded-2xl overflow-hidden pop-animation" style="animation-delay: 0.1s;">
-                <div class="p-4 md:p-6">
-                    <div class="flex items-center mb-3 md:mb-4">
-                        <div class="bg-gradient-to-br from-primary to-secondary rounded-full p-2 md:p-3 mr-3 md:mr-4">
-                            <i class="fas fa-popcorn text-white text-xl md:text-2xl"></i>
+            <div class="game-card glass-card rounded-xl overflow-hidden pop-animation" style="animation-delay: 0.1s;">
+                <div class="p-3 md:p-5">
+                    <div class="flex items-center mb-2 md:mb-3">
+                        <div class="bg-gradient-to-br from-primary to-secondary rounded-full p-1.5 md:p-2 mr-2 md:mr-3">
+                            <i class="fas fa-popcorn text-white text-base md:text-xl"></i>
                         </div>
-                        <h3 class="text-xl md:text-2xl font-bold">Popcorn Catcher</h3>
+                        <h3 class="text-lg md:text-xl font-bold">Popcorn Catcher</h3>
                     </div>
-                    <p class="text-gray-300 mb-3 md:mb-4 text-sm md:text-base">Catch falling popcorn in your basket! Move with arrow keys.</p>
-                    <button onclick="startGame('catcher')" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-2 md:py-3 px-4 md:px-6 rounded-lg transition-all hover:shadow-lg text-sm md:text-base">
+                    <p class="text-gray-300 mb-2 md:mb-3 text-sm md:text-base">Catch falling popcorn! Swipe or use arrow keys.</p>
+                    <button onclick="startGame('catcher')" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-2 md:py-2.5 px-3 md:px-5 rounded-lg transition-all hover:shadow-md text-sm md:text-base">
                         Play Now
                     </button>
                 </div>
             </div>
             
             <!-- Game 2: Popcorn Memory -->
-            <div class="game-card glass-card rounded-2xl overflow-hidden pop-animation" style="animation-delay: 0.3s;">
-                <div class="p-4 md:p-6">
-                    <div class="flex items-center mb-3 md:mb-4">
-                        <div class="bg-gradient-to-br from-primary to-secondary rounded-full p-2 md:p-3 mr-3 md:mr-4">
-                            <i class="fas fa-brain text-white text-xl md:text-2xl"></i>
+            <div class="game-card glass-card rounded-xl overflow-hidden pop-animation" style="animation-delay: 0.3s;">
+                <div class="p-3 md:p-5">
+                    <div class="flex items-center mb-2 md:mb-3">
+                        <div class="bg-gradient-to-br from-primary to-secondary rounded-full p-1.5 md:p-2 mr-2 md:mr-3">
+                            <i class="fas fa-brain text-white text-base md:text-xl"></i>
                         </div>
-                        <h3 class="text-xl md:text-2xl font-bold">Popcorn Memory</h3>
+                        <h3 class="text-lg md:text-xl font-bold">Popcorn Memory</h3>
                     </div>
-                    <p class="text-gray-300 mb-3 md:mb-4 text-sm md:text-base">Match the popcorn pairs in this memory challenge!</p>
-                    <button onclick="startGame('memory')" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-2 md:py-3 px-4 md:px-6 rounded-lg transition-all hover:shadow-lg text-sm md:text-base">
+                    <p class="text-gray-300 mb-2 md:mb-3 text-sm md:text-base">Match popcorn pairs in this memory challenge!</p>
+                    <button onclick="startGame('memory')" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-2 md:py-2.5 px-3 md:px-5 rounded-lg transition-all hover:shadow-md text-sm md:text-base">
                         Play Now
                     </button>
                 </div>
             </div>
             
             <!-- Game 3: Pop the Popcorn -->
-            <div class="game-card glass-card rounded-2xl overflow-hidden pop-animation" style="animation-delay: 0.5s;">
-                <div class="p-4 md:p-6">
-                    <div class="flex items-center mb-3 md:mb-4">
-                        <div class="bg-gradient-to-br from-primary to-secondary rounded-full p-2 md:p-3 mr-3 md:mr-4">
-                            <i class="fas fa-fire text-white text-xl md:text-2xl"></i>
+            <div class="game-card glass-card rounded-xl overflow-hidden pop-animation" style="animation-delay: 0.5s;">
+                <div class="p-3 md:p-5">
+                    <div class="flex items-center mb-2 md:mb-3">
+                        <div class="bg-gradient-to-br from-primary to-secondary rounded-full p-1.5 md:p-2 mr-2 md:mr-3">
+                            <i class="fas fa-fire text-white text-base md:text-xl"></i>
                         </div>
-                        <h3 class="text-xl md:text-2xl font-bold">Pop the Popcorn</h3>
+                        <h3 class="text-lg md:text-xl font-bold">Pop the Popcorn</h3>
                     </div>
-                    <p class="text-gray-300 mb-3 md:mb-4 text-sm md:text-base">Click the kernels to pop them before time runs out!</p>
-                    <button onclick="startGame('pop')" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-2 md:py-3 px-4 md:px-6 rounded-lg transition-all hover:shadow-lg text-sm md:text-base">
+                    <p class="text-gray-300 mb-2 md:mb-3 text-sm md:text-base">Tap kernels to pop them before time runs out!</p>
+                    <button onclick="startGame('pop')" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-2 md:py-2.5 px-3 md:px-5 rounded-lg transition-all hover:shadow-md text-sm md:text-base">
                         Play Now
                     </button>
                 </div>
             </div>
             
             <!-- Game 4: Popcorn Trivia -->
-            <div class="game-card glass-card rounded-2xl overflow-hidden pop-animation" style="animation-delay: 0.7s;">
-                <div class="p-4 md:p-6">
-                    <div class="flex items-center mb-3 md:mb-4">
-                        <div class="bg-gradient-to-br from-primary to-secondary rounded-full p-2 md:p-3 mr-3 md:mr-4">
-                            <i class="fas fa-question text-white text-xl md:text-2xl"></i>
+            <div class="game-card glass-card rounded-xl overflow-hidden pop-animation" style="animation-delay: 0.7s;">
+                <div class="p-3 md:p-5">
+                    <div class="flex items-center mb-2 md:mb-3">
+                        <div class="bg-gradient-to-br from-primary to-secondary rounded-full p-1.5 md:p-2 mr-2 md:mr-3">
+                            <i class="fas fa-question text-white text-base md:text-xl"></i>
                         </div>
-                        <h3 class="text-xl md:text-2xl font-bold">Popcorn Trivia</h3>
+                        <h3 class="text-lg md:text-xl font-bold">Popcorn Trivia</h3>
                     </div>
-                    <p class="text-gray-300 mb-3 md:mb-4 text-sm md:text-base">Test your knowledge about our meme journey!</p>
-                    <button onclick="startGame('trivia')" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-2 md:py-3 px-4 md:px-6 rounded-lg transition-all hover:shadow-lg text-sm md:text-base">
+                    <p class="text-gray-300 mb-2 md:mb-3 text-sm md:text-base">Test your knowledge about our meme journey!</p>
+                    <button onclick="startGame('trivia')" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-2 md:py-2.5 px-3 md:px-5 rounded-lg transition-all hover:shadow-md text-sm md:text-base">
                         Play Now
                     </button>
                 </div>
             </div>
             
             <!-- Game 5: Popcorn Reaction -->
-            <div class="game-card glass-card rounded-2xl overflow-hidden pop-animation" style="animation-delay: 0.9s;">
-                <div class="p-4 md:p-6">
-                    <div class="flex items-center mb-3 md:mb-4">
-                        <div class="bg-gradient-to-br from-primary to-secondary rounded-full p-2 md:p-3 mr-3 md:mr-4">
-                            <i class="fas fa-bolt text-white text-xl md:text-2xl"></i>
+            <div class="game-card glass-card rounded-xl overflow-hidden pop-animation" style="animation-delay: 0.9s;">
+                <div class="p-3 md:p-5">
+                    <div class="flex items-center mb-2 md:mb-3">
+                        <div class="bg-gradient-to-br from-primary to-secondary rounded-full p-1.5 md:p-2 mr-2 md:mr-3">
+                            <i class="fas fa-bolt text-white text-base md:text-xl"></i>
                         </div>
-                        <h3 class="text-xl md:text-2xl font-bold">Popcorn Reaction</h3>
+                        <h3 class="text-lg md:text-xl font-bold">Popcorn Reaction</h3>
                     </div>
-                    <p class="text-gray-300 mb-3 md:mb-4 text-sm md:text-base">How fast can you click the popping targets?</p>
-                    <button onclick="startGame('reaction')" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-2 md:py-3 px-4 md:px-6 rounded-lg transition-all hover:shadow-lg text-sm md:text-base">
+                    <p class="text-gray-300 mb-2 md:mb-3 text-sm md:text-base">Tap the popcorn as soon as it appears!</p>
+                    <button onclick="startGame('reaction')" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-2 md:py-2.5 px-3 md:px-5 rounded-lg transition-all hover:shadow-md text-sm md:text-base">
                         Play Now
                     </button>
                 </div>
             </div>
             
-            <!-- Game 6: Popcorn Rush (New Game) -->
-            <div class="game-card glass-card rounded-2xl overflow-hidden pop-animation" style="animation-delay: 1.1s;">
-                <div class="p-4 md:p-6">
-                    <div class="flex items-center mb-3 md:mb-4">
-                        <div class="bg-gradient-to-br from-primary to-secondary rounded-full p-2 md:p-3 mr-3 md:mr-4">
-                            <i class="fas fa-running text-white text-xl md:text-2xl"></i>
+            <!-- Game 6: Popcorn Painter (New Game) -->
+            <div class="game-card glass-card rounded-xl overflow-hidden pop-animation" style="animation-delay: 1.1s;">
+                <div class="p-3 md:p-5">
+                    <div class="flex items-center mb-2 md:mb-3">
+                        <div class="bg-gradient-to-br from-primary to-secondary rounded-full p-1.5 md:p-2 mr-2 md:mr-3">
+                            <i class="fas fa-paint-brush text-white text-base md:text-xl"></i>
                         </div>
-                        <h3 class="text-xl md:text-2xl font-bold">Popcorn Rush</h3>
+                        <h3 class="text-lg md:text-xl font-bold">Popcorn Painter</h3>
                     </div>
-                    <p class="text-gray-300 mb-3 md:mb-4 text-sm md:text-base">Dodge obstacles and collect popcorn in this endless runner!</p>
-                    <button onclick="startGame('rush')" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-2 md:py-3 px-4 md:px-6 rounded-lg transition-all hover:shadow-lg text-sm md:text-base">
+                    <p class="text-gray-300 mb-2 md:mb-3 text-sm md:text-base">Connect popcorn to draw shapes and score!</p>
+                    <button onclick="startGame('painter')" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-2 md:py-2.5 px-3 md:px-5 rounded-lg transition-all hover:shadow-md text-sm md:text-base">
                         Play Now
                     </button>
                 </div>
@@ -568,19 +566,19 @@
         </div>
         
         <!-- Game displays -->
-        <div id="gameDisplays" class="mb-12 md:mb-16">
+        <div id="gameDisplays" class="mb-8 md:mb-12">
             <!-- Popcorn Catcher Game -->
             <div id="catcherGame" class="hidden">
-                <div class="flex justify-between items-center mb-4 md:mb-6">
-                    <h2 class="text-2xl md:text-3xl font-bold gradient-text">Popcorn Catcher</h2>
-                    <button onclick="exitGame()" class="text-gray-400 hover:text-white text-xl md:text-2xl transition-colors">
+                <div class="flex justify-between items-center mb-3 md:mb-4">
+                    <h2 class="text-xl md:text-2xl font-bold gradient-text">Popcorn Catcher</h2>
+                    <button onclick="exitGame()" class="text-gray-400 hover:text-white text-lg md:text-xl transition-colors">
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
                 <div id="popcornGame">
                     <div class="popcorn-basket"></div>
                 </div>
-                <div class="flex justify-between mt-4 md:mt-6">
+                <div class="flex justify-between mt-3 md:mt-4">
                     <div class="counter-box">
                         <div class="text-gray-400">Score</div>
                         <div class="counter-value" id="catcherScore">0</div>
@@ -590,18 +588,21 @@
                         <div class="counter-value" id="catcherTime">30</div>
                     </div>
                 </div>
+                <div class="mt-3 text-xs md:text-sm text-gray-400">
+                    Tip: Swipe or use arrow keys to move the basket
+                </div>
             </div>
             
             <!-- Memory Game -->
             <div id="memoryGame" class="hidden">
-                <div class="flex justify-between items-center mb-4 md:mb-6">
-                    <h2 class="text-2xl md:text-3xl font-bold gradient-text">Popcorn Memory</h2>
-                    <button onclick="exitGame()" class="text-gray-400 hover:text-white text-xl md:text-2xl transition-colors">
+                <div class="flex justify-between items-center mb-3 md:mb-4">
+                    <h2 class="text-xl md:text-2xl font-bold gradient-text">Popcorn Memory</h2>
+                    <button onclick="exitGame()" class="text-gray-400 hover:text-white text-lg md:text-xl transition-colors">
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
-                <div id="memoryBoard" class="grid grid-cols-4 gap-3 md:gap-4"></div>
-                <div class="flex justify-between mt-4 md:mt-6">
+                <div id="memoryBoard" class="grid grid-cols-4 gap-2 md:gap-3"></div>
+                <div class="flex justify-between mt-3 md:mt-4">
                     <div class="counter-box">
                         <div class="text-gray-400">Pairs</div>
                         <div class="counter-value" id="memoryPairs">0/8</div>
@@ -615,14 +616,14 @@
             
             <!-- Pop the Popcorn Game -->
             <div id="popGame" class="hidden">
-                <div class="flex justify-between items-center mb-4 md:mb-6">
-                    <h2 class="text-2xl md:text-3xl font-bold gradient-text">Pop the Popcorn</h2>
-                    <button onclick="exitGame()" class="text-gray-400 hover:text-white text-xl md:text-2xl transition-colors">
+                <div class="flex justify-between items-center mb-3 md:mb-4">
+                    <h2 class="text-xl md:text-2xl font-bold gradient-text">Pop the Popcorn</h2>
+                    <button onclick="exitGame()" class="text-gray-400 hover:text-white text-lg md:text-xl transition-colors">
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
-                <div id="popContainer" class="grid grid-cols-4 md:grid-cols-8 gap-3 md:gap-4 min-h-[300px] md:min-h-[400px]"></div>
-                <div class="flex justify-between mt-4 md:mt-6">
+                <div id="popContainer" class="grid grid-cols-4 md:grid-cols-6 gap-2 md:gap-3 min-h-[200px] md:min-h-[300px]"></div>
+                <div class="flex justify-between mt-3 md:mt-4">
                     <div class="counter-box">
                         <div class="text-gray-400">Popped</div>
                         <div class="counter-value" id="popCount">0</div>
@@ -636,16 +637,16 @@
             
             <!-- Popcorn Trivia Game -->
             <div id="triviaGame" class="hidden">
-                <div class="flex justify-between items-center mb-4 md:mb-6">
-                    <h2 class="text-2xl md:text-3xl font-bold gradient-text">Popcorn Trivia</h2>
-                    <button onclick="exitGame()" class="text-gray-400 hover:text-white text-xl md:text-2xl transition-colors">
+                <div class="flex justify-between items-center mb-3 md:mb-4">
+                    <h2 class="text-xl md:text-2xl font-bold gradient-text">Popcorn Trivia</h2>
+                    <button onclick="exitGame()" class="text-gray-400 hover:text-white text-lg md:text-xl transition-colors">
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
-                <div id="triviaContainer" class="glass-card rounded-2xl p-6 md:p-8 min-h-[300px] md:min-h-[400px] flex flex-col">
-                    <div class="text-lg md:text-xl mb-3 md:mb-4" id="triviaQuestion">Loading question...</div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mt-auto" id="triviaOptions"></div>
-                    <div class="flex justify-between mt-6 md:mt-8">
+                <div id="triviaContainer" class="glass-card rounded-xl p-4 md:p-6 min-h-[200px] md:min-h-[300px] flex flex-col">
+                    <div class="text-base md:text-lg mb-2 md:mb-3" id="triviaQuestion">Loading question...</div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 mt-auto" id="triviaOptions"></div>
+                    <div class="flex justify-between mt-4 md:mt-6">
                         <div class="counter-box">
                             <div class="text-gray-400">Score</div>
                             <div class="counter-value" id="triviaScore">0</div>
@@ -660,15 +661,15 @@
             
             <!-- Popcorn Reaction Game -->
             <div id="reactionGame" class="hidden">
-                <div class="flex justify-between items-center mb-4 md:mb-6">
-                    <h2 class="text-2xl md:text-3xl font-bold gradient-text">Popcorn Reaction</h2>
-                    <button onclick="exitGame()" class="text-gray-400 hover:text-white text-xl md:text-2xl transition-colors">
+                <div class="flex justify-between items-center mb-3 md:mb-4">
+                    <h2 class="text-xl md:text-2xl font-bold gradient-text">Popcorn Reaction</h2>
+                    <button onclick="exitGame()" class="text-gray-400 hover:text-white text-lg md:text-xl transition-colors">
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
-                <div id="reactionContainer" class="glass-card rounded-2xl p-6 md:p-8 min-h-[300px] md:min-h-[400px] relative overflow-hidden">
-                    <div class="text-center mb-3 md:mb-4">Click the popcorn as soon as it appears!</div>
-                    <div class="flex justify-center gap-6 mb-4 md:mb-6">
+                <div id="reactionContainer" class="glass-card rounded-xl p-4 md:p-6 min-h-[200px] md:min-h-[300px] relative overflow-hidden">
+                    <div class="text-center mb-2 md:mb-3 text-sm md:text-base">Tap the popcorn as soon as it appears!</div>
+                    <div class="flex justify-center gap-4 mb-3 md:mb-4">
                         <div class="counter-box">
                             <div class="text-gray-400">Targets</div>
                             <div class="counter-value" id="reactionTargets">0/20</div>
@@ -678,122 +679,125 @@
                             <div class="counter-value" id="reactionTime">0ms</div>
                         </div>
                     </div>
-                    <div id="reactionArea" class="w-full h-48 md:h-64 relative"></div>
+                    <div id="reactionArea" class="w-full h-40 md:h-48 relative"></div>
                 </div>
             </div>
             
-            <!-- Popcorn Rush Game (New Game) -->
-            <div id="rushGame" class="hidden">
-                <div class="flex justify-between items-center mb-4 md:mb-6">
-                    <h2 class="text-2xl md:text-3xl font-bold gradient-text">Popcorn Rush</h2>
-                    <button onclick="exitGame()" class="text-gray-400 hover:text-white text-xl md:text-2xl transition-colors">
+            <!-- Popcorn Painter Game (New Game) -->
+            <div id="painterGame" class="hidden">
+                <div class="flex justify-between items-center mb-3 md:mb-4">
+                    <h2 class="text-xl md:text-2xl font-bold gradient-text">Popcorn Painter</h2>
+                    <button onclick="exitGame()" class="text-gray-400 hover:text-white text-lg md:text-xl transition-colors">
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
-                <div id="rushContainer" class="popcorn-rush-container">
-                    <div class="rush-road"></div>
-                    <div class="rush-player" id="rushPlayer"></div>
-                </div>
-                <div class="flex justify-between mt-4 md:mt-6">
+                <canvas id="painterCanvas" class="painter-canvas"></canvas>
+                <div class="flex justify-between mt-3 md:mt-4">
                     <div class="counter-box">
                         <div class="text-gray-400">Score</div>
-                        <div class="counter-value" id="rushScore">0</div>
+                        <div class="counter-value" id="painterScore">0</div>
                     </div>
                     <div class="counter-box">
-                        <div class="text-gray-400">Lives</div>
-                        <div class="counter-value" id="rushLives">3</div>
+                        <div class="text-gray-400">Time</div>
+                        <div class="counter-value" id="painterTime">30</div>
                     </div>
                 </div>
-                <div class="mt-4 text-sm text-gray-400">
-                    Tip: Use arrow keys or swipe to move left/right
+                <div class="mt-3 text-xs md:text-sm text-gray-400">
+                    Tip: Tap or click popcorn pieces to connect them and form shapes
                 </div>
             </div>
         </div>
         
         <!-- Anniversary message -->
-        <div class="max-w-4xl mx-auto glass-card rounded-2xl p-6 md:p-8 mb-12 md:mb-16 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-4 md:mb-6">Thank You For 1 Amazing Year!</h2>
-            <p class="text-lg md:text-xl text-gray-300 mb-4 md:mb-6">
+        <div class="max-w-3xl mx-auto glass-card rounded-xl p-4 md:p-6 mb-8 md:mb-12 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold gradient-text mb-3 md:mb-4">Thank You For 1 Amazing Year!</h2>
+            <p class="text-base md:text-lg text-gray-300 mb-3 md:mb-4">
                 From our first meme to our 1-year anniversary, it's been an incredible journey thanks to our 75 amazing followers!
             </p>
-            <p class="text-lg md:text-xl text-gray-300 mb-6 md:mb-8">
+            <p class="text-base md:text-lg text-gray-300 mb-4 md:mb-6">
                 Here's to many more years of laughs, memes, and popcorn-fueled fun!
             </p>
-            <div class="flex flex-wrap justify-center gap-3 md:gap-4">
-                <button id="specialThanksBtn" class="bg-gradient-to-r from-primary to-accent text-white px-6 md:px-8 py-2 md:py-3 rounded-full font-bold hover:scale-105 transition-all text-sm md:text-base">
-                    <i class="fas fa-heart mr-2"></i> Special Thanks
+            <div class="flex flex-wrap justify-center gap-2 md:gap-3">
+                <button id="specialThanksBtn" class="bg-gradient-to-r from-primary to-accent text-white px-4 md:px-6 py-2 md:py-2.5 rounded-full font-bold hover:scale-105 transition-all text-sm md:text-base">
+                    <i class="fas fa-heart mr-1.5"></i> Special Thanks
                 </button>
-                <button id="milestonesBtn" class="glass-card hover:bg-white/20 px-6 md:px-8 py-2 md:py-3 rounded-full font-bold hover:scale-105 transition-all text-sm md:text-base">
-                    <i class="fas fa-trophy mr-2"></i> Our Milestones
+                <button id="milestonesBtn" class="glass-card hover:bg-white/20 px-4 md:px-6 py-2 md:py-2.5 rounded-full font-bold hover:scale-105 transition-all text-sm md:text-base">
+                    <i class="fas fa-trophy mr-1.5"></i> Our Milestones
                 </button>
             </div>
-            <div id="specialThanks" class="hidden mt-6 md:mt-8 text-base md:text-lg text-gray-300 font-medium"></div>
-            <div id="milestones" class="hidden mt-6 md:mt-8 text-left">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                    <div class="glass-card p-4 md:p-6 rounded-xl">
-                        <div class="text-primary font-bold mb-1 md:mb-2">First Month</div>
-                        <p class="text-sm md:text-base">Reached our first 10 followers and posted 15 memes!</p>
+            <div id="specialThanks" class="hidden mt-4 md:mt-6 text-sm md:text-base text-gray-300 font-medium"></div>
+            <div id="milestones" class="hidden mt-4 md:mt-6 text-left">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                    <div class="glass-card p-3 md:p-4 rounded-lg">
+                        <div class="text-primary font-bold mb-1">First Month</div>
+                        <p class="text-xs md:text-sm">Reached our first 10 followers and posted 15 memes!</p>
                     </div>
-                    <div class="glass-card p-4 md:p-6 rounded-xl">
-                        <div class="text-primary font-bold mb-1 md:mb-2">6 Months</div>
-                        <p class="text-sm md:text-base">Hit 50 followers and our meme got 200+ likes!</p>
+                    <div class="glass-card p-3 md:p-4 rounded-lg">
+                        <div class="text-primary font-bold mb-1">6 Months</div>
+                        <p class="text-xs md:text-sm">Hit 50 followers and our meme got 200+ likes!</p>
                     </div>
-                    <div class="glass-card p-4 md:p-6 rounded-xl">
-                        <div class="text-primary font-bold mb-1 md:mb-2">9 Months</div>
-                        <p class="text-sm md:text-base">First collaboration with another meme page!</p>
+                    <div class="glass-card p-3 md:p-4 rounded-lg">
+                        <div class="text-primary font-bold mb-1">9 Months</div>
+                        <p class="text-xs md:text-sm">First collaboration with another meme page!</p>
                     </div>
-                    <div class="glass-card p-4 md:p-6 rounded-xl">
-                        <div class="text-primary font-bold mb-1 md:mb-2">1 Year</div>
-                        <p class="text-sm md:text-base">75 amazing followers and counting! Thank you all!</p>
+                    <div class="glass-card p-3 md:p-4 rounded-lg">
+                        <div class="text-primary font-bold mb-1">1 Year</div>
+                        <p class="text-xs md:text-sm">75 amazing followers and counting! Thank you all!</p>
                     </div>
                 </div>
             </div>
         </div>
         
         <!-- Follow CTA -->
-        <div class="glass-card rounded-2xl p-6 md:p-8 text-center mb-12 md:mb-16">
-            <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4">Want to see more buttery memes?</h3>
-            <p class="text-lg md:text-xl text-gray-300 mb-4 md:mb-6">Follow us on Instagram for daily laughs!</p>
+        <div class="glass-card rounded-xl p-4 md:p-6 text-center mb-8 md:mb-12">
+            <h3 class="text-lg md:text-xl font-bold mb-2 md:mb-3">Want to see more buttery memes?</h3>
+            <p class="text-base md:text-lg text-gray-300 mb-3 md:mb-4">Follow us on Instagram for daily laughs!</p>
             <a href="https://instagram.com/popcorn_culture7" target="_blank"
-                class="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 md:px-8 py-2 md:py-3 rounded-full font-bold hover:scale-105 transition-all text-sm md:text-base">
-                <i class="fab fa-instagram mr-2"></i> @popcorn_culture7
+                class="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 md:px-6 py-2 md:py-2.5 rounded-full font-bold hover:scale-105 transition-all text-sm md:text-base">
+                <i class="fab fa-instagram mr-1.5"></i> @popcorn_culture7
             </a>
         </div>
     </div>
     
     <!-- Footer -->
-    <footer class="bg-black bg-opacity-50 py-6 md:py-8 border-t border-gray-800">
+    <footer class="bg-black bg-opacity-50 py-4 md:py-6 border-t border-gray-800">
         <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center space-x-4 md:space-x-6 mb-4 md:mb-6">
-                <a href="https://instagram.com/popcorn_culture7" target="_blank" class="text-gray-400 hover:text-white text-xl md:text-2xl transition-colors">
+            <div class="flex justify-center mb-3 md:mb-4">
+                <a href="https://instagram.com/popcorn_culture7" target="_blank" class="text-gray-400 hover:text-white text-lg md:text-xl transition-colors">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="#" class="text-gray-400 hover:text-white text-xl md:text-2xl transition-colors">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-white text-xl md:text-2xl transition-colors">
-                    <i class="fab fa-tiktok"></i>
-                </a>
             </div>
-            <p class="text-gray-500 text-xs md:text-sm">© 2023 Popcorn Culture 7 - Celebrating 1 Year of Memes!</p>
-            <p class="text-gray-600 text-xs mt-1 md:mt-2">Made with 🍿 and ❤️ for our 75 followers</p>
+            <p class="text-gray-500 text-xs md:text-sm">© 2025 Popcorn Culture 7 - Celebrating 1 Year of Memes!</p>
+            <p class="text-gray-600 text-xs mt-1">Made with 🍿 and ❤️ for our 75 followers</p>
         </div>
     </footer>
     
     <script>
+        // Utility: Debounce function
+        function debounce(func, wait) {
+            let timeout;
+            return function (...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), wait);
+            };
+        }
+        
         // Create floating popcorn particles
         function createParticles() {
             const container = document.getElementById('popcornParticles');
-            for (let i = 0; i < 30; i++) {
+            const isMobile = window.innerWidth <= 768;
+            const particleCount = isMobile ? 10 : 20;
+            
+            for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'popcorn-particle';
-                particle.style.width = `${Math.random() * 30 + 10}px`;
+                particle.style.width = `${Math.random() * 20 + 8}px`;
                 particle.style.height = particle.style.width;
                 particle.style.left = `${Math.random() * 100}%`;
                 particle.style.top = `${Math.random() * 100}%`;
-                particle.style.opacity = Math.random() * 0.5 + 0.3;
-                particle.style.animationDuration = `${Math.random() * 10 + 5}s`;
-                particle.style.animationDelay = `${Math.random() * 5}s`;
+                particle.style.opacity = Math.random() * 0.4 + 0.2;
+                particle.style.animationDuration = `${Math.random() * 8 + 4}s`;
+                particle.style.animationDelay = `${Math.random() * 4}s`;
                 container.appendChild(particle);
             }
         }
@@ -801,22 +805,22 @@
         // Confetti effect
         function createConfetti() {
             const colors = ['#FFD700', '#FF6B6B', '#48BB78', '#4299E1', '#9F7AEA', '#F687B3'];
-            for (let i = 0; i < 150; i++) {
+            const isMobile = window.innerWidth <= 768;
+            const confettiCount = isMobile ? 50 : 100;
+            
+            for (let i = 0; i < confettiCount; i++) {
                 const confetti = document.createElement('div');
                 confetti.className = 'confetti';
                 confetti.style.left = `${Math.random() * 100}%`;
                 confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.animationDelay = `${Math.random() * 5}s`;
-                confetti.style.width = `${Math.random() * 10 + 5}px`;
-                confetti.style.height = `${Math.random() * 10 + 5}px`;
+                confetti.style.animationDelay = `${Math.random() * 4}s`;
+                confetti.style.width = `${Math.random() * 8 + 4}px`;
+                confetti.style.height = confetti.style.width;
                 document.body.appendChild(confetti);
                 
-                setTimeout(() => {
-                    confetti.remove();
-                }, 5000);
+                setTimeout(() => confetti.remove(), 4000);
             }
             
-            // Play sound
             const confettiSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-party-horn-1680.mp3');
             confettiSound.volume = 0.3;
             confettiSound.play();
@@ -824,56 +828,44 @@
         
         // Game management
         let currentGame = null;
-        let gameInterval;
+        let gameLoopId = null;
         
         function startGame(game) {
-            // Hide all games first
-            document.querySelectorAll('#gameDisplays > div').forEach(el => {
-                el.classList.add('hidden');
-            });
-            
-            // Show selected game
+            document.querySelectorAll('#gameDisplays > div').forEach(el => el.classList.add('hidden'));
             document.getElementById(`${game}Game`).classList.remove('hidden');
             currentGame = game;
             
-            // Initialize the selected game
             switch(game) {
-                case 'catcher':
-                    initCatcherGame();
-                    break;
-                case 'memory':
-                    initMemoryGame();
-                    break;
-                case 'pop':
-                    initPopGame();
-                    break;
-                case 'trivia':
-                    initTriviaGame();
-                    break;
-                case 'reaction':
-                    initReactionGame();
-                    break;
-                case 'rush':
-                    initRushGame();
-                    break;
+                case 'catcher': initCatcherGame(); break;
+                case 'memory': initMemoryGame(); break;
+                case 'pop': initPopGame(); break;
+                case 'trivia': initTriviaGame(); break;
+                case 'reaction': initReactionGame(); break;
+                case 'painter': initPainterGame(); break;
             }
             
-            // Scroll to game
             document.getElementById('gameDisplays').scrollIntoView({ behavior: 'smooth' });
         }
         
         function exitGame() {
             if (currentGame) {
                 document.getElementById(`${currentGame}Game`).classList.add('hidden');
-                clearInterval(gameInterval);
-                currentGame = null;
+                cancelAnimationFrame(gameLoopId);
                 
-                // Remove event listeners for rush game
-                if (currentGame === 'rush') {
-                    document.removeEventListener('keydown', handleRushKeyPress);
-                    document.removeEventListener('touchstart', handleRushTouchStart);
-                    document.removeEventListener('touchmove', handleRushTouchMove);
+                if (currentGame === 'catcher') {
+                    document.removeEventListener('keydown', moveBasket);
+                    document.removeEventListener('touchstart', handleCatcherTouchStart);
+                    document.removeEventListener('touchmove', handleCatcherTouchMove);
+                } else if (currentGame === 'painter') {
+                    document.removeEventListener('mousedown', handlePainterMouseDown);
+                    document.removeEventListener('mousemove', handlePainterMouseMove);
+                    document.removeEventListener('mouseup', handlePainterMouseUp);
+                    document.removeEventListener('touchstart', handlePainterTouchStart);
+                    document.removeEventListener('touchmove', handlePainterTouchMove);
+                    document.removeEventListener('touchend', handlePainterTouchEnd);
                 }
+                
+                currentGame = null;
             }
         }
         
@@ -881,6 +873,7 @@
         let catcherScore = 0;
         let catcherTime = 30;
         let basketPosition = 50;
+        let touchStartX = 0;
         
         function initCatcherGame() {
             catcherScore = 0;
@@ -890,41 +883,39 @@
             document.getElementById('catcherScore').textContent = catcherScore;
             document.getElementById('catcherTime').textContent = catcherTime;
             
-            // Clear any existing popcorn
             document.querySelectorAll('.falling-popcorn').forEach(p => p.remove());
             
-            // Create falling popcorn
-            gameInterval = setInterval(() => {
-                createFallingPopcorn();
-            }, 800);
+            const gameContainer = document.getElementById('popcornGame');
+            let lastSpawn = 0;
+            let lastTimeUpdate = performance.now();
             
-            // Timer
-            const timer = setInterval(() => {
-                catcherTime--;
-                document.getElementById('catcherTime').textContent = catcherTime;
-                
+            function catcherGameLoop(timestamp) {
                 if (catcherTime <= 0) {
-                    clearInterval(timer);
-                    clearInterval(gameInterval);
-                    document.removeEventListener('keydown', moveBasket);
-                    
-                    // Show result with style
-                    const gameContainer = document.getElementById('catcherGame');
-                    const resultDiv = document.createElement('div');
-                    resultDiv.className = 'glass-card p-4 md:p-6 rounded-xl text-center mt-3 md:mt-4';
-                    resultDiv.innerHTML = `
-                        <h3 class="text-xl md:text-2xl font-bold mb-1 md:mb-2 gradient-text">Game Over!</h3>
-                        <p class="text-lg md:text-xl">Your score: <span class="text-primary font-bold">${catcherScore}</span></p>
-                        <button onclick="this.parentElement.remove()" class="mt-3 md:mt-4 px-3 md:px-4 py-1 md:py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-full text-sm md:text-base">
-                            Close
-                        </button>
-                    `;
-                    gameContainer.appendChild(resultDiv);
+                    endCatcherGame();
+                    return;
                 }
-            }, 1000);
+                
+                // Spawn popcorn
+                if (timestamp - lastSpawn > 1000) {
+                    createFallingPopcorn();
+                    lastSpawn = timestamp;
+                }
+                
+                // Update time
+                if (timestamp - lastTimeUpdate > 1000) {
+                    catcherTime--;
+                    document.getElementById('catcherTime').textContent = catcherTime;
+                    lastTimeUpdate = timestamp;
+                }
+                
+                gameLoopId = requestAnimationFrame(catcherGameLoop);
+            }
             
-            // Keyboard controls
+            gameLoopId = requestAnimationFrame(catcherGameLoop);
+            
             document.addEventListener('keydown', moveBasket);
+            document.addEventListener('touchstart', handleCatcherTouchStart);
+            document.addEventListener('touchmove', handleCatcherTouchMove);
         }
         
         function moveBasket(e) {
@@ -932,11 +923,33 @@
             const gameWidth = document.getElementById('popcornGame').offsetWidth;
             
             if (e.key === 'ArrowLeft' && basketPosition > 5) {
-                basketPosition -= 5;
+                basketPosition -= 4;
             } else if (e.key === 'ArrowRight' && basketPosition < 95) {
-                basketPosition += 5;
+                basketPosition += 4;
             }
             
+            basket.style.left = `${basketPosition}%`;
+        }
+        
+        function handleCatcherTouchStart(e) {
+            touchStartX = e.touches[0].clientX;
+        }
+        
+        function handleCatcherTouchMove(e) {
+            e.preventDefault();
+            const touchX = e.touches[0].clientX;
+            const diff = touchX - touchStartX;
+            const gameWidth = document.getElementById('popcornGame').offsetWidth;
+            
+            if (diff > 10 && basketPosition < 95) {
+                basketPosition += 4;
+                touchStartX = touchX;
+            } else if (diff < -10 && basketPosition > 5) {
+                basketPosition -= 4;
+                touchStartX = touchX;
+            }
+            
+            const basket = document.querySelector('.popcorn-basket');
             basket.style.left = `${basketPosition}%`;
         }
         
@@ -949,15 +962,14 @@
             gameContainer.appendChild(popcorn);
             
             let position = 0;
-            const fallSpeed = Math.random() * 5 + 3;
+            const fallSpeed = Math.random() * 4 + 2;
             const popcornId = Date.now();
             popcorn.id = `popcorn-${popcornId}`;
             
-            const fallInterval = setInterval(() => {
+            function fall() {
                 position += 1;
                 popcorn.style.top = `${position}px`;
                 
-                // Check collision with basket
                 const basket = document.querySelector('.popcorn-basket');
                 const basketRect = basket.getBoundingClientRect();
                 const popcornRect = popcorn.getBoundingClientRect();
@@ -967,43 +979,61 @@
                     popcornRect.right >= basketRect.left &&
                     popcornRect.left <= basketRect.right
                 ) {
-                    clearInterval(fallInterval);
                     popcorn.remove();
                     catcherScore++;
                     document.getElementById('catcherScore').textContent = catcherScore;
                     
-                    // Play sound
                     const crunchSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-crunchy-bites-1913.mp3');
                     crunchSound.volume = 0.3;
                     crunchSound.play();
                     
-                    // Create small effect
                     const effect = document.createElement('div');
-                    effect.className = 'absolute w-4 h-4 bg-yellow-300 rounded-full opacity-70';
+                    effect.className = 'absolute w-3 h-3 bg-yellow-300 rounded-full opacity-70';
                     effect.style.left = `${popcornRect.left}px`;
                     effect.style.top = `${popcornRect.top}px`;
                     gameContainer.appendChild(effect);
                     
-                    // Animate effect
                     let scale = 1;
-                    const grow = setInterval(() => {
+                    function growEffect() {
                         scale += 0.2;
                         effect.style.transform = `scale(${scale})`;
-                        effect.style.opacity = 0.7 - (scale/10);
-                        
-                        if (scale > 5) {
-                            clearInterval(grow);
+                        effect.style.opacity = 0.7 - (scale / 10);
+                        if (scale > 4) {
                             effect.remove();
+                        } else {
+                            requestAnimationFrame(growEffect);
                         }
-                    }, 50);
+                    }
+                    growEffect();
                 }
                 
-                // Remove if out of bounds
                 if (position > gameContainer.offsetHeight) {
-                    clearInterval(fallInterval);
                     popcorn.remove();
+                } else {
+                    requestAnimationFrame(fall);
                 }
-            }, fallSpeed);
+            }
+            
+            requestAnimationFrame(fall);
+        }
+        
+        function endCatcherGame() {
+            cancelAnimationFrame(gameLoopId);
+            document.removeEventListener('keydown', moveBasket);
+            document.removeEventListener('touchstart', handleCatcherTouchStart);
+            document.removeEventListener('touchmove', handleCatcherTouchMove);
+            
+            const gameContainer = document.getElementById('catcherGame');
+            const resultDiv = document.createElement('div');
+            resultDiv.className = 'glass-card p-3 md:p-4 rounded-lg text-center mt-2 md:mt-3';
+            resultDiv.innerHTML = `
+                <h3 class="text-lg md:text-xl font-bold mb-1 gradient-text">Game Over!</h3>
+                <p class="text-base md:text-lg">Your score: <span class="text-primary font-bold">${catcherScore}</span></p>
+                <button onclick="initCatcherGame()" class="mt-2 md:mt-3 px-2 md:px-3 py-1 md:py-1.5 bg-gradient-to-r from-primary to-secondary text-white rounded-full text-xs md:text-sm">
+                    Play Again
+                </button>
+            `;
+            gameContainer.appendChild(resultDiv);
         }
         
         // Memory Game
@@ -1025,22 +1055,17 @@
             const memoryBoard = document.getElementById('memoryBoard');
             memoryBoard.innerHTML = '';
             
-            // Create pairs
             const cards = [];
-            memoryIcons.forEach(icon => {
-                cards.push(icon, icon);
-            });
+            memoryIcons.forEach(icon => cards.push(icon, icon));
             
-            // Shuffle
             for (let i = cards.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [cards[i], cards[j]] = [cards[j], cards[i]];
             }
             
-            // Create cards
             cards.forEach((icon, index) => {
                 const card = document.createElement('div');
-                card.className = 'memory-card h-16 md:h-24 cursor-pointer relative';
+                card.className = 'memory-card h-12 md:h-20 cursor-pointer relative';
                 card.dataset.index = index;
                 
                 const front = document.createElement('div');
@@ -1054,18 +1079,18 @@
                 card.appendChild(back);
                 
                 card.addEventListener('click', flipCard);
+                card.addEventListener('touchstart', e => {
+                    e.preventDefault();
+                    flipCard.call(card);
+                });
                 memoryBoard.appendChild(card);
             });
         }
         
         function flipCard() {
-            // Don't allow flipping if already matched or if two cards are already flipped
-            if (matchedCards.includes(this.dataset.index) || flippedCards.length === 2) {
-                return;
-            }
+            if (matchedCards.includes(this.dataset.index) || flippedCards.length === 2) return;
             
             this.classList.add('flipped');
-            
             if (!flippedCards.includes(this.dataset.index)) {
                 flippedCards.push(this.dataset.index);
             }
@@ -1086,33 +1111,31 @@
                     document.getElementById('memoryPairs').textContent = `${memoryPairs}/${memoryIcons.length}`;
                     flippedCards = [];
                     
-                    // Play match sound
                     const matchSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-positive-notification-951.mp3');
                     matchSound.volume = 0.3;
                     matchSound.play();
                     
-                    // Check for game completion
                     if (memoryPairs === memoryIcons.length) {
                         setTimeout(() => {
                             const gameContainer = document.getElementById('memoryGame');
                             const resultDiv = document.createElement('div');
-                            resultDiv.className = 'glass-card p-4 md:p-6 rounded-xl text-center mt-3 md:mt-4';
+                            resultDiv.className = 'glass-card p-3 md:p-4 rounded-lg text-center mt-2 md:mt-3';
                             resultDiv.innerHTML = `
-                                <h3 class="text-xl md:text-2xl font-bold mb-1 md:mb-2 gradient-text">You Won!</h3>
-                                <p class="text-lg md:text-xl">Completed in <span class="text-primary font-bold">${memoryMoves}</span> moves!</p>
-                                <button onclick="initMemoryGame()" class="mt-3 md:mt-4 px-3 md:px-4 py-1 md:py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-full text-sm md:text-base">
+                                <h3 class="text-lg md:text-xl font-bold mb-1 gradient-text">You Won!</h3>
+                                <p class="text-base md:text-lg">Completed in <span class="text-primary font-bold">${memoryMoves}</span> moves!</p>
+                                <button onclick="initMemoryGame()" class="mt-2 md:mt-3 px-2 md:px-3 py-1 md:py-1.5 bg-gradient-to-r from-primary to-secondary text-white rounded-full text-xs md:text-sm">
                                     Play Again
                                 </button>
                             `;
                             gameContainer.appendChild(resultDiv);
-                        }, 1000);
+                        }, 800);
                     }
                 } else {
                     setTimeout(() => {
                         card1.classList.remove('flipped');
                         card2.classList.remove('flipped');
                         flippedCards = [];
-                    }, 1000);
+                    }, 800);
                 }
             }
         }
@@ -1131,34 +1154,35 @@
             const popContainer = document.getElementById('popContainer');
             popContainer.innerHTML = '';
             
-            // Create kernels
-            for (let i = 0; i < 32; i++) {
+            for (let i = 0; i < 24; i++) {
                 const kernel = document.createElement('div');
                 kernel.className = 'popcorn-kernel';
                 kernel.addEventListener('click', () => popKernel(kernel));
+                kernel.addEventListener('touchstart', e => {
+                    e.preventDefault();
+                    popKernel(kernel);
+                });
                 popContainer.appendChild(kernel);
             }
             
-            // Timer
-            gameInterval = setInterval(() => {
-                popTime--;
-                document.getElementById('popTime').textContent = popTime;
-                
+            let lastTimeUpdate = performance.now();
+            
+            function popGameLoop(timestamp) {
                 if (popTime <= 0) {
-                    clearInterval(gameInterval);
-                    const gameContainer = document.getElementById('popGame');
-                    const resultDiv = document.createElement('div');
-                    resultDiv.className = 'glass-card p-4 md:p-6 rounded-xl text-center mt-3 md:mt-4';
-                    resultDiv.innerHTML = `
-                        <h3 class="text-xl md:text-2xl font-bold mb-1 md:mb-2 gradient-text">Game Over!</h3>
-                        <p class="text-lg md:text-xl">You popped <span class="text-primary font-bold">${popCount}</span> kernels!</p>
-                        <button onclick="initPopGame()" class="mt-3 md:mt-4 px-3 md:px-4 py-1 md:py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-full text-sm md:text-base">
-                            Play Again
-                        </button>
-                    `;
-                    gameContainer.appendChild(resultDiv);
+                    endPopGame();
+                    return;
                 }
-            }, 1000);
+                
+                if (timestamp - lastTimeUpdate > 1000) {
+                    popTime--;
+                    document.getElementById('popTime').textContent = popTime;
+                    lastTimeUpdate = timestamp;
+                }
+                
+                gameLoopId = requestAnimationFrame(popGameLoop);
+            }
+            
+            gameLoopId = requestAnimationFrame(popGameLoop);
         }
         
         function popKernel(kernel) {
@@ -1167,11 +1191,25 @@
                 popCount++;
                 document.getElementById('popCount').textContent = popCount;
                 
-                // Play pop sound
                 const popSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-single-popcorn-pop-1931.mp3');
                 popSound.volume = 0.3;
                 popSound.play();
             }
+        }
+        
+        function endPopGame() {
+            cancelAnimationFrame(gameLoopId);
+            const gameContainer = document.getElementById('popGame');
+            const resultDiv = document.createElement('div');
+            resultDiv.className = 'glass-card p-3 md:p-4 rounded-lg text-center mt-2 md:mt-3';
+            resultDiv.innerHTML = `
+                <h3 class="text-lg md:text-xl font-bold mb-1 gradient-text">Game Over!</h3>
+                <p class="text-base md:text-lg">You popped <span class="text-primary font-bold">${popCount}</span> kernels!</p>
+                <button onclick="initPopGame()" class="mt-2 md:mt-3 px-2 md:px-3 py-1 md:py-1.5 bg-gradient-to-r from-primary to-secondary text-white rounded-full text-xs md:text-sm">
+                    Play Again
+                </button>
+            `;
+            gameContainer.appendChild(resultDiv);
         }
         
         // Popcorn Trivia Game
@@ -1190,8 +1228,8 @@
             },
             {
                 question: "What was our first viral meme about?",
-                options: ["Cats", "Popcorn", "Movies", "Dancing"],
-                correct: "Popcorn"
+                options: ["Cats", "Hruthpoorvak", "Movies", "Dancing"],
+                correct: "Hruthpoorvak"
             },
             {
                 question: "Which platform do we primarily use?",
@@ -1219,11 +1257,11 @@
             if (triviaQuestionIndex >= triviaQuestions.length) {
                 const gameContainer = document.getElementById('triviaGame');
                 const resultDiv = document.createElement('div');
-                resultDiv.className = 'glass-card p-4 md:p-6 rounded-xl text-center mt-3 md:mt-4';
+                resultDiv.className = 'glass-card p-3 md:p-4 rounded-lg text-center mt-2 md:mt-3';
                 resultDiv.innerHTML = `
-                    <h3 class="text-xl md:text-2xl font-bold mb-1 md:mb-2 gradient-text">Trivia Complete!</h3>
-                    <p class="text-lg md:text-xl">Your score: <span class="text-primary font-bold">${triviaScore}/${triviaQuestions.length}</span></p>
-                    <button onclick="initTriviaGame()" class="mt-3 md:mt-4 px-3 md:px-4 py-1 md:py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-full text-sm md:text-base">
+                    <h3 class="text-lg md:text-xl font-bold mb-1 gradient-text">Trivia Complete!</h3>
+                    <p class="text-base md:text-lg">Your score: <span class="text-primary font-bold">${triviaScore}/${triviaQuestions.length}</span></p>
+                    <button onclick="initTriviaGame()" class="mt-2 md:mt-3 px-2 md:px-3 py-1 md:py-1.5 bg-gradient-to-r from-primary to-secondary text-white rounded-full text-xs md:text-sm">
                         Play Again
                     </button>
                 `;
@@ -1239,9 +1277,13 @@
             
             question.options.forEach(option => {
                 const optionEl = document.createElement('div');
-                optionEl.className = 'trivia-option p-3 md:p-4 rounded-lg text-sm md:text-base';
+                optionEl.className = 'trivia-option p-2 md:p-3 rounded-lg text-xs md:text-sm';
                 optionEl.textContent = option;
                 optionEl.addEventListener('click', () => handleTriviaAnswer(option, optionEl));
+                optionEl.addEventListener('touchstart', e => {
+                    e.preventDefault();
+                    handleTriviaAnswer(option, optionEl);
+                });
                 optionsContainer.appendChild(optionEl);
             });
         }
@@ -1263,12 +1305,10 @@
                 triviaScore++;
                 document.getElementById('triviaScore').textContent = triviaScore;
                 
-                // Play correct sound
                 const correctSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3');
                 correctSound.volume = 0.3;
                 correctSound.play();
             } else {
-                // Play incorrect sound
                 const incorrectSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-wrong-answer-fail-notification-946.mp3');
                 incorrectSound.volume = 0.3;
                 incorrectSound.play();
@@ -1278,7 +1318,7 @@
                 triviaQuestionIndex++;
                 document.getElementById('triviaProgress').textContent = `${triviaQuestionIndex + 1}/${triviaQuestions.length}`;
                 loadTriviaQuestion();
-            }, 1500);
+            }, 1200);
         }
         
         // Popcorn Reaction Game
@@ -1305,11 +1345,11 @@
                 
                 const gameContainer = document.getElementById('reactionGame');
                 const resultDiv = document.createElement('div');
-                resultDiv.className = 'glass-card p-4 md:p-6 rounded-xl text-center mt-3 md:mt-4';
+                resultDiv.className = 'glass-card p-3 md:p-4 rounded-lg text-center mt-2 md:mt-3';
                 resultDiv.innerHTML = `
-                    <h3 class="text-xl md:text-2xl font-bold mb-1 md:mb-2 gradient-text">Game Complete!</h3>
-                    <p class="text-lg md:text-xl">Average reaction time: <span class="text-primary font-bold">${avgTime}ms</span></p>
-                    <button onclick="initReactionGame()" class="mt-3 md:mt-4 px-3 md:px-4 py-1 md:py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-full text-sm md:text-base">
+                    <h3 class="text-lg md:text-xl font-bold mb-1 gradient-text">Game Complete!</h3>
+                    <p class="text-base md:text-lg">Average reaction time: <span class="text-primary font-bold">${avgTime}ms</span></p>
+                    <button onclick="initReactionGame()" class="mt-2 md:mt-3 px-2 md:px-3 py-1 md:py-1.5 bg-gradient-to-r from-primary to-secondary text-white rounded-full text-xs md:text-sm">
                         Play Again
                     </button>
                 `;
@@ -1322,14 +1362,14 @@
             target.className = 'reaction-target';
             target.textContent = 'POP!';
             
-            const maxX = reactionArea.offsetWidth - 80;
-            const maxY = reactionArea.offsetHeight - 80;
+            const maxX = reactionArea.offsetWidth - 60;
+            const maxY = reactionArea.offsetHeight - 60;
             target.style.left = `${Math.random() * maxX}px`;
             target.style.top = `${Math.random() * maxY}px`;
             
             const startTime = Date.now();
             
-            target.addEventListener('click', () => {
+            const handleClick = () => {
                 const reactionTime = Date.now() - startTime;
                 reactionTimes.push(reactionTime);
                 reactionTargets++;
@@ -1338,209 +1378,233 @@
                 document.getElementById('reactionTime').textContent = 
                     `${Math.round(reactionTimes.reduce((a, b) => a + b, 0) / reactionTimes.length)}ms`;
                 
-                // Play hit sound
                 const hitSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-quick-positive-notification-2681.mp3');
                 hitSound.volume = 0.3;
                 hitSound.play();
                 
                 target.remove();
-                setTimeout(spawnReactionTarget, 500);
+                setTimeout(spawnReactionTarget, 400);
+            };
+            
+            target.addEventListener('click', handleClick);
+            target.addEventListener('touchstart', e => {
+                e.preventDefault();
+                handleClick();
             });
             
             reactionArea.appendChild(target);
         }
         
-        // Popcorn Rush Game (New Game)
-        let rushScore = 0;
-        let rushLives = 3;
-        let rushPlayerPosition = 50;
-        let rushObstacles = [];
-        let rushCollectibles = [];
-        let rushGameRunning = false;
-        let touchStartX = 0;
+        // Popcorn Painter Game
+        let painterScore = 0;
+        let painterTime = 30;
+        let isDrawing = false;
+        let currentPath = [];
+        let popcornPieces = [];
         
-        function initRushGame() {
-            rushScore = 0;
-            rushLives = 3;
-            rushPlayerPosition = 50;
-            rushObstacles = [];
-            rushCollectibles = [];
+        function initPainterGame() {
+            painterScore = 0;
+            painterTime = 30;
+            isDrawing = false;
+            currentPath = [];
+            popcornPieces = [];
             
-            document.getElementById('rushScore').textContent = rushScore;
-            document.getElementById('rushLives').textContent = rushLives;
+            document.getElementById('painterScore').textContent = painterScore;
+            document.getElementById('painterTime').textContent = painterTime;
             
-            const rushContainer = document.getElementById('rushContainer');
-            rushContainer.innerHTML = `
-                <div class="rush-road"></div>
-                <div class="rush-player" id="rushPlayer"></div>
-            `;
+            const canvas = document.getElementById('painterCanvas');
+            const ctx = canvas.getContext('2d');
+            const container = canvas.parentElement;
             
-            // Start game loop
-            rushGameRunning = true;
-            gameInterval = setInterval(rushGameLoop, 20);
+            canvas.width = Math.min(container.offsetWidth, 400);
+            canvas.height = window.innerWidth <= 768 ? 250 : 300;
             
-            // Add controls
-            document.addEventListener('keydown', handleRushKeyPress);
-            document.addEventListener('touchstart', handleRushTouchStart);
-            document.addEventListener('touchmove', handleRushTouchMove);
-        }
-        
-        function handleRushKeyPress(e) {
-            if (e.key === 'ArrowLeft' && rushPlayerPosition > 10) {
-                rushPlayerPosition -= 5;
-            } else if (e.key === 'ArrowRight' && rushPlayerPosition < 90) {
-                rushPlayerPosition += 5;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Create popcorn pieces
+            for (let i = 0; i < 8; i++) {
+                const x = Math.random() * (canvas.width - 30) + 15;
+                const y = Math.random() * (canvas.height - 30) + 15;
+                const piece = document.createElement('div');
+                piece.className = 'painter-popcorn';
+                piece.style.left = `${x}px`;
+                piece.style.top = `${y}px`;
+                piece.dataset.index = i;
+                container.appendChild(piece);
+                popcornPieces.push({ x, y, index: i });
             }
             
-            updateRushPlayerPosition();
-        }
-        
-        function handleRushTouchStart(e) {
-            touchStartX = e.touches[0].clientX;
-        }
-        
-        function handleRushTouchMove(e) {
-            e.preventDefault();
-            const touchX = e.touches[0].clientX;
-            const diff = touchX - touchStartX;
+            let lastTimeUpdate = performance.now();
             
-            if (diff > 20 && rushPlayerPosition < 90) {
-                rushPlayerPosition += 5;
-                touchStartX = touchX;
-            } else if (diff < -20 && rushPlayerPosition > 10) {
-                rushPlayerPosition -= 5;
-                touchStartX = touchX;
-            }
-            
-            updateRushPlayerPosition();
-        }
-        
-        function updateRushPlayerPosition() {
-            const player = document.getElementById('rushPlayer');
-            player.style.left = `${rushPlayerPosition}%`;
-        }
-        
-        function rushGameLoop() {
-            if (!rushGameRunning) return;
-            
-            // Randomly spawn obstacles and collectibles
-            if (Math.random() < 0.02) {
-                spawnRushObstacle();
-            }
-            
-            if (Math.random() < 0.03) {
-                spawnRushCollectible();
-            }
-            
-            // Move obstacles and check collisions
-            const player = document.getElementById('rushPlayer');
-            const playerRect = player.getBoundingClientRect();
-            
-            // Move and check obstacles
-            const obstacles = document.querySelectorAll('.rush-obstacle');
-            obstacles.forEach(obstacle => {
-                const currentTop = parseInt(obstacle.style.top || '0');
-                obstacle.style.top = `${currentTop + 3}px`;
-                
-                // Check if passed player
-                if (currentTop > playerRect.bottom) {
-                    obstacle.remove();
-                    rushScore++;
-                    document.getElementById('rushScore').textContent = rushScore;
+            function painterGameLoop(timestamp) {
+                if (painterTime <= 0) {
+                    endPainterGame();
+                    return;
                 }
                 
-                // Check collision
-                const obstacleRect = obstacle.getBoundingClientRect();
-                if (
-                    playerRect.left < obstacleRect.right &&
-                    playerRect.right > obstacleRect.left &&
-                    playerRect.top < obstacleRect.bottom &&
-                    playerRect.bottom > obstacleRect.top
-                ) {
-                    // Collision detected
-                    obstacle.remove();
-                    rushLives--;
-                    document.getElementById('rushLives').textContent = rushLives;
-                    
-                    // Play collision sound
-                    const crashSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-explosion-2759.mp3');
-                    crashSound.volume = 0.3;
-                    crashSound.play();
-                    
-                    // Game over check
-                    if (rushLives <= 0) {
-                        endRushGame();
+                if (timestamp - lastTimeUpdate > 1000) {
+                    painterTime--;
+                    document.getElementById('painterTime').textContent = painterTime;
+                    lastTimeUpdate = timestamp;
+                }
+                
+                // Redraw lines
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.strokeStyle = '#FFD700';
+                ctx.lineWidth = 2;
+                
+                if (currentPath.length > 1) {
+                    ctx.beginPath();
+                    ctx.moveTo(currentPath[0].x, currentPath[0].y);
+                    for (let i = 1; i < currentPath.length; i++) {
+                        ctx.lineTo(currentPath[i].x, currentPath[i].y);
+                    }
+                    ctx.stroke();
+                }
+                
+                gameLoopId = requestAnimationFrame(painterGameLoop);
+            }
+            
+            gameLoopId = requestAnimationFrame(painterGameLoop);
+            
+            document.addEventListener('mousedown', handlePainterMouseDown);
+            document.addEventListener('mousemove', handlePainterMouseMove);
+            document.addEventListener('mouseup', handlePainterMouseUp);
+            document.addEventListener('touchstart', handlePainterTouchStart);
+            document.addEventListener('touchmove', handlePainterTouchMove);
+            document.addEventListener('touchend', handlePainterTouchEnd);
+        }
+        
+        function handlePainterMouseDown(e) {
+            const canvas = document.getElementById('painterCanvas');
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const piece = checkPopcornHit(x, y);
+            if (piece) {
+                isDrawing = true;
+                currentPath = [{ x: piece.x, y: piece.y, index: piece.index }];
+            }
+        }
+        
+        function handlePainterMouseMove(e) {
+            if (!isDrawing) return;
+            
+            const canvas = document.getElementById('painterCanvas');
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const piece = checkPopcornHit(x, y);
+            if (piece && !currentPath.some(p => p.index === piece.index)) {
+                currentPath.push({ x: piece.x, y: piece.y, index: piece.index });
+                
+                if (currentPath.length >= 3) {
+                    // Check if path forms a closed shape
+                    const firstPiece = currentPath[0];
+                    const lastPiece = currentPath[currentPath.length - 1];
+                    if (Math.abs(firstPiece.x - lastPiece.x) < 20 && Math.abs(firstPiece.y - lastPiece.y) < 20) {
+                        painterScore += currentPath.length * 10;
+                        document.getElementById('painterScore').textContent = painterScore;
+                        
+                        const shapeSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-jump-coin-216.mp3');
+                        shapeSound.volume = 0.3;
+                        shapeSound.play();
+                        
+                        currentPath = [];
+                        isDrawing = false;
                     }
                 }
-            });
+            }
+        }
+        
+        function handlePainterMouseUp() {
+            isDrawing = false;
+            currentPath = [];
+        }
+        
+        function handlePainterTouchStart(e) {
+            e.preventDefault();
+            const canvas = document.getElementById('painterCanvas');
+            const rect = canvas.getBoundingClientRect();
+            const x = e.touches[0].clientX - rect.left;
+            const y = e.touches[0].clientY - rect.top;
             
-            // Move and check collectibles
-            const collectibles = document.querySelectorAll('.rush-collectible');
-            collectibles.forEach(collectible => {
-                const currentTop = parseInt(collectible.style.top || '0');
-                collectible.style.top = `${currentTop + 3}px`;
+            const piece = checkPopcornHit(x, y);
+            if (piece) {
+                isDrawing = true;
+                currentPath = [{ x: piece.x, y: piece.y, index: piece.index }];
+            }
+        }
+        
+        function handlePainterTouchMove(e) {
+            e.preventDefault();
+            if (!isDrawing) return;
+            
+            const canvas = document.getElementById('painterCanvas');
+            const rect = canvas.getBoundingClientRect();
+            const x = e.touches[0].clientX - rect.left;
+            const y = e.touches[0].clientY - rect.top;
+            
+            const piece = checkPopcornHit(x, y);
+            if (piece && !currentPath.some(p => p.index === piece.index)) {
+                currentPath.push({ x: piece.x, y: piece.y, index: piece.index });
                 
-                // Check collision
-                const collectibleRect = collectible.getBoundingClientRect();
-                if (
-                    playerRect.left < collectibleRect.right &&
-                    playerRect.right > collectibleRect.left &&
-                    playerRect.top < collectibleRect.bottom &&
-                    playerRect.bottom > collectibleRect.top
-                ) {
-                    // Collected
-                    collectible.remove();
-                    rushScore += 5;
-                    document.getElementById('rushScore').textContent = rushScore;
-                    
-                    // Play collection sound
-                    const collectSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-jump-coin-216.mp3');
-                    collectSound.volume = 0.3;
-                    collectSound.play();
+                if (currentPath.length >= 3) {
+                    const firstPiece = currentPath[0];
+                    const lastPiece = currentPath[currentPath.length - 1];
+                    if (Math.abs(firstPiece.x - lastPiece.x) < 20 && Math.abs(firstPiece.y - lastPiece.y) < 20) {
+                        painterScore += currentPath.length * 10;
+                        document.getElementById('painterScore').textContent = painterScore;
+                        
+                        const shapeSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-jump-coin-216.mp3');
+                                               shapeSound.volume = 0.3; // Set volume to a reasonable level
+                        shapeSound.play();
+                        
+                        currentPath = [];
+                        isDrawing = false;
+                    }
                 }
-                
-                // Remove if out of bounds
-                if (currentTop > playerRect.bottom + 100) {
-                    collectible.remove();
-                }
+            }
+        }
+        
+        function handlePainterTouchEnd(e) {
+            e.preventDefault();
+            isDrawing = false;
+            currentPath = [];
+        }
+        
+        function checkPopcornHit(x, y) {
+            return popcornPieces.find(piece => {
+                const dx = x - piece.x;
+                const dy = y - piece.y;
+                return Math.sqrt(dx * dx + dy * dy) < 20; // Hit radius of 20px
             });
         }
         
-        function spawnRushObstacle() {
-            const container = document.getElementById('rushContainer');
-            const obstacle = document.createElement('div');
-            obstacle.className = 'rush-obstacle';
-            obstacle.style.left = `${Math.random() * 80 + 10}%`;
-            obstacle.style.top = '-60px';
-            container.appendChild(obstacle);
-        }
-        
-        function spawnRushCollectible() {
-            const container = document.getElementById('rushContainer');
-            const collectible = document.createElement('div');
-            collectible.className = 'rush-collectible';
-            collectible.style.left = `${Math.random() * 80 + 10}%`;
-            collectible.style.top = '-40px';
-            container.appendChild(collectible);
-        }
-        
-        function endRushGame() {
-            rushGameRunning = false;
-            clearInterval(gameInterval);
+        function endPainterGame() {
+            cancelAnimationFrame(gameLoopId);
+            document.removeEventListener('mousedown', handlePainterMouseDown);
+            document.removeEventListener('mousemove', handlePainterMouseMove);
+            document.removeEventListener('mouseup', handlePainterMouseUp);
+            document.removeEventListener('touchstart', handlePainterTouchStart);
+            document.removeEventListener('touchmove', handlePainterTouchMove);
+            document.removeEventListener('touchend', handlePainterTouchEnd);
             
-            // Remove event listeners
-            document.removeEventListener('keydown', handleRushKeyPress);
-            document.removeEventListener('touchstart', handleRushTouchStart);
-            document.removeEventListener('touchmove', handleRushTouchMove);
+            const gameContainer = document.getElementById('painterGame');
+            const canvas = document.getElementById('painterCanvas');
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
             
-            // Show game over
-            const gameContainer = document.getElementById('rushGame');
+            document.querySelectorAll('.painter-popcorn').forEach(piece => piece.remove());
+            
             const resultDiv = document.createElement('div');
-            resultDiv.className = 'glass-card p-4 md:p-6 rounded-xl text-center mt-3 md:mt-4';
+            resultDiv.className = 'glass-card p-3 md:p-4 rounded-lg text-center mt-2 md:mt-3';
             resultDiv.innerHTML = `
-                <h3 class="text-xl md:text-2xl font-bold mb-1 md:mb-2 gradient-text">Game Over!</h3>
-                <p class="text-lg md:text-xl">Your score: <span class="text-primary font-bold">${rushScore}</span></p>
-                <button onclick="initRushGame()" class="mt-3 md:mt-4 px-3 md:px-4 py-1 md:py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-full text-sm md:text-base">
+                <h3 class="text-lg md:text-xl font-bold mb-1 gradient-text">Game Over!</h3>
+                <p class="text-base md:text-lg">Your score: <span class="text-primary font-bold">${painterScore}</span></p>
+                <button onclick="initPainterGame()" class="mt-2 md:mt-3 px-2 md:px-3 py-1 md:py-1.5 bg-gradient-to-r from-primary to-secondary text-white rounded-full text-xs md:text-sm">
                     Play Again
                 </button>
             `;
@@ -1551,15 +1615,13 @@
         document.getElementById('specialThanksBtn').addEventListener('click', () => {
             const thanksDiv = document.getElementById('specialThanks');
             thanksDiv.classList.toggle('hidden');
-            
-            if (!thanksDiv.classList.contains('hidden')) {
+            if (!thanksDiv.innerHTML) {
                 thanksDiv.innerHTML = `
-                    <p class="mb-4">A huge shoutout to our amazing community!</p>
-                    <ul class="list-disc list-inside space-y-2">
-                        <li><span class="text-primary">MemeLord42</span> - For sharing our first viral meme</li>
-                        <li><span class="text-primary">PopcornFan</span> - For being our first follower</li>
-                        <li><span class="text-primary">TheMemeTeam</span> - For our awesome collaboration</li>
-                        <li><span class="text-primary">All 75 of you</span> - For every like, comment, and share!</li>
+                    <p class="mb-2 md:mb-3">A huge shoutout to our amazing community!</p>
+                    <ul class="list-disc list-inside text-left">
+                        <li><span class="text-primary">Hruthpoorvak</span> for creating our first viral meme!</li>
+                        <li><span class="text-primary">Our 75 followers</span> for the endless laughs and support!</li>
+                        <li><span class="text-primary">Meme creators</span> for the inspiration!</li>
                     </ul>
                 `;
             }
@@ -1569,10 +1631,17 @@
             document.getElementById('milestones').classList.toggle('hidden');
         });
         
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            createParticles();
-            document.getElementById('confettiBtn').addEventListener('click', createConfetti);
+        // Confetti button
+        document.getElementById('confettiBtn').addEventListener('click', createConfetti);
+        
+        // Initialize particles on page load
+        createParticles();
+        
+        // Cleanup on page unload
+        window.addEventListener('unload', () => {
+            exitGame();
+            document.querySelectorAll('.popcorn-particle').forEach(p => p.remove());
+            document.querySelectorAll('.confetti').forEach(c => c.remove());
         });
     </script>
 </body>
